@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 export const BLUR_FADE_DELAY = 0.15;
 
 export const ATTESTIX_VERSION =
-  process.env.NEXT_PUBLIC_ATTESTIX_VERSION || "0.2.4";
+  process.env.NEXT_PUBLIC_ATTESTIX_VERSION || "0.3.0";
 
 export const siteConfig = {
   name: "Attestix",
@@ -33,9 +33,9 @@ export const siteConfig = {
   hero: {
     title: "Attestix",
     description:
-      "The EU AI Act takes effect August 2, 2026. Non-compliant organizations face fines up to EUR 35 million or 7% of global revenue. Attestix is like TurboTax for AI compliance: it automates the documentation, identity verification, and audit trails your AI agents need to stay legal. Install once, generate cryptographic proof of compliance on every run.",
+      "The EU AI Act takes effect August 2, 2026. Non-compliant organizations face fines up to EUR 35 million or 7% of global revenue. Attestix is like TurboTax for AI compliance: it automates the documentation, identity verification, and audit trails your AI agents need to stay legal. Install once, drop into LangChain, OpenAI Agents SDK, or CrewAI, and generate cryptographic proof of compliance on every run.",
     cta: "pip install attestix",
-    ctaDescription: "Open source. Apache 2.0 license.",
+    ctaDescription: "v0.3.0 - 358 tests passing. Real LangChain, OpenAI Agents SDK, and CrewAI integrations. Apache 2.0 license.",
   },
   pricing: [
     {
@@ -204,7 +204,12 @@ export const siteConfig = {
     {
       question: "What is the current maturity level?",
       answer:
-        `Attestix v${ATTESTIX_VERSION} is in active development (beta). It includes 358 tests across functional, end-to-end, and conformance benchmark suites covering all 9 modules. We recommend thorough testing before production deployment.`,
+        `Attestix v${ATTESTIX_VERSION} is in active development (beta). It includes 358 tests across functional, end-to-end, and conformance benchmark suites covering all 9 modules, plus real integrations with LangChain, OpenAI Agents SDK, and CrewAI. GitHub Actions CI runs the full pytest matrix, lint, and security scans on every push. We still recommend thorough testing before production deployment.`,
+    },
+    {
+      question: "Does Attestix work with LangChain, OpenAI Agents SDK, or CrewAI?",
+      answer:
+        "Yes, all three are real integrations shipped in v0.3.0 rather than examples or shims. LangChain uses a BaseCallbackHandler that writes every tool call, LLM call, and chain step to the Attestix audit trail with hash chaining. OpenAI Agents SDK uses MCPServerStdio so Attestix tools appear as native MCP tools. CrewAI attaches Attestix to the mcps field on every agent, giving each crew member full attestation capabilities. You can also use Attestix via its MCP server from any MCP-compatible client (Claude Desktop, Cursor, Continue, Windsurf, VS Code).",
     },
     {
       question: "How does blockchain anchoring work?",
